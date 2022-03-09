@@ -1,0 +1,92 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% include "header.html" %}
+
+<div class="container container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1 class="my-5">Add a Curriculum to the List</h1>
+      {% for field, errors in form.errors.items() %}
+      {{ ','.join(errors)}}
+      {% endfor %}
+      {{ ckeditor.load() }}
+      {{ ckeditor.config(name='body') }}
+      {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+
+      <!-- <form action="/add-curriculum" methods="POST" class="form-horizontal">
+        {{ form.csrf_token() }}
+
+        <div class="form-group my-3">
+          <h3>{{form.name.label}}</h3>
+          {{form.name(class="quiz-text")}}
+        </div>
+
+        <div class="form-group my-3">
+          <h3>{{form.link.label}}</h3>
+          {{form.link(class="quiz-text")}}
+        </div>
+
+        <div class="form-group my-3">
+          <h3>{{form.cdreview.label}}</h3>
+          {{form.cdreview(class="quiz-text")}}
+        </div>
+
+        <div class="form-group my-3">
+          <h3>{{form.grades.label}}</h3>
+          {{form.grades(class="quiz-list")}}
+        </div>
+
+        <div class="form-group my-3">
+          <h3>{{form.reviews.label}}</h3>
+          {{form.reviews(class="quiz-text")}}
+        </div>
+
+        <div class="form-group">
+          <h3>{{form.accredited.label}}</h3>
+          {{form.accredited(class="quiz-list")}}
+      </div>
+
+      <div class="form-group my-3">
+          <h3>{{form.cost.label}}</h3>
+          <p class="text-muted"> $ = 0-200, $$ = 201-400, $$$ = 401-800, $$$$ = 801+</p>
+          {{form.cost(class="quiz-dropdown")}}
+      </div>
+
+      <div class="form-group my-3">
+          <h3>{{form.worldview.label}}</h3>
+          {{form.worldview(class="quiz-dropdown")}}
+      </div>
+
+      <div class="form-group">
+          <h3>{{form.disability_friendly.label}}</h3>
+          {{form.disability_friendly(class="quiz-list")}}
+      </div>
+      <div class="form-group">
+        <h3>{{form.involvement.label}}</h3>
+        {{form.involvement(class="quiz-list")}}
+    </div>
+    <div class="form-group">
+        <h3>{{form.learning_style.label}}</h3>
+        {{form.learning_style(class="quiz-list")}}
+    </div>
+    <div class="form-group">
+        <h3>{{form.curriculum_type.label}}</h3>
+        {{form.curriculum_type(class="quiz-list")}}
+    </div>
+    <div class="form-group">
+        <h3>{{form.recommended_subjects.label}}</h3>
+        {{form.recommended_subjects(class="quiz-list")}}
+    </div>
+    <div class="mb-5">
+      {{ form.submit(class="btn btn-primary") }}
+  </div>
+
+  </form> -->
+  
+    </div>
+  </div>
+</div>
+
+
+  {% include "footer.html" %}

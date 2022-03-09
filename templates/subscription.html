@@ -1,0 +1,16 @@
+{% include "header.html" %}
+<script src="https://js.stripe.com/v3/"></script>
+<h1>CheckOut</h1>
+<body>
+<form id="payment-form">
+    <div id="card-element">
+      <!-- Elements will create form elements here -->
+    </div>
+    <div id="card-element-errors" role="alert">
+      <!-- Display error message to your customers here -->
+    </div>
+    <button id="submit">Subscribe</button>
+    
+  </form>
+</body>
+{% include "footer.html"%}

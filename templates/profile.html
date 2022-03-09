@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>My Profile</h1>
+        </div>
+    </div>
+{% if current_user.id == 1: %}
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Admin Dashboard</h2>
+            <a href="{{ url_for('add_new_article') }}" class="btn btn-primary d-block mt-5"> Add Article</a><br>
+            <a href="{{ url_for('add_curriculum') }}" class="btn btn-secondary d-block"> Add Curriculum</a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col">
+            <h2>User Info</h2>
+            <p><strong>Name:</strong> </p> <p>{{ user.name }}</p>
+            <p><strong>Registered Email: </strong></p> <p>{{ user.email }}</p>
+            <p><strong>Update your password: </strong></p>
+            <a href="#" class="btn-warning btn">Change My Password</a>
+            <!-- Provide way of updating each field and showing password -->
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Account Info</h2>
+            <p>Status:</p>
+            <!-- If active: Subscribed, else: Unsubscribed -->
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col">
+            <h2>My Saved Curriculum</h2>
+            {% if user.saved_curriculum == null: %}
+                <p>You haven't saved anything yet!</p>
+                <p>Check out our <a href="{{ url_for('quiz')}}">quiz</a> or filter through <a href="{{ url_for('all_curriculum') }}">all curriculum</a> to find which ones you want to save to your profile.</p>
+            {% else: %}
+                {% for curriculum in saved_curriculum: %} 
+                <li><a href=""> {{ curriculum.title }} </a></li>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col">
+            <h2>My Reviews</h2>
+            <p>Status:</p> -->
+            <!-- If active: Subscribed, else: Unsubscribed -->
+        <!-- </div>
+    </div> -->
+</div>
+
+
+
+
+
+{% include 'footer.html' %}

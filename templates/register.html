@@ -1,0 +1,20 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="container">
+  <h1>Register for your own Find My Curriculum Profile</h1>
+  <h2>4.99 month-to-month subscription</h2>
+  <p>Cancel at any time. 4.99 gets you full access to the database of over 300 curriculum. Filter by your unique needs and save it to your profile for quick reference when you're ready to invest, or to re-evaluate if you need to make a change.</p>
+ <br><hr><br>
+  <h3>We'll create your user profile first, then take you to checkout.</h3>
+  <form action="/register" method="POST">
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+  
+  </form>
+  
+</div>
+
+  {% include "footer.html" %}
+  {% endblock %}

@@ -1,0 +1,48 @@
+{% include "header.html" %}
+
+
+
+<section >
+
+        <div class="jumbotron jumbotron-fluid" id="homepage1">
+            <div class="container">
+                <div class="row">
+                <div class="col-lg-6">
+                <h1>Helping educators find the right curriculum that meets their unique needs.</h1>
+                <p>Save HOURS of time looking for the right curriculum, not knowing which questions to ask, and use this simple quiz
+                    instead to get your top-rated curriculum.</p>
+                <a href="{{ url_for('quiz') }}" class="btn btn-primary mb-3">Take the Quiz</a>
+                </div>
+                <div class="col-lg-6 text-center d-none d-lg-block">
+                    <img src="{{ url_for('static', filename='img/books-for-find-my-curriculum.jpg' ) }}" class="homepage-image" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="jumbotron jumbotron-fluid" id="homepage2">
+            <div class="container container-fluid text-light">
+                <div class="row">
+                    <div class="col-lg-6 text-center d-none d-lg-block"><img src="{{ url_for('static', filename='img/rating.png' ) }}" class="homepage-image-1" alt="rating-icon-fro-amonrat-rungreangfangsai"></div>
+                    <div class="col-lg-6">  
+                        {% if current_user.is_authenticated: %}
+                        <h2>See My Profile</h2>
+                        <a class="btn btn-warning" href="{{ url_for('profile') }}">Profile Page</a>
+                        {% else: %}
+
+                    <h2>Want an easy way to save your search results? </h2>
+                        <p>Sign up for a low 4.99/month a profile and get full access to the database of over 300 curriculum and the ability
+                            to save your faves to your profile.</p>
+                        <a href="{{ url_for('register') }}" class="btn btn-warning">Register</a>
+                        <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+                       
+                        {% endif %}</div>
+           
+        </div>
+        </div>
+        </div>
+
+
+</section>
+
+
+{% include "footer.html" %}

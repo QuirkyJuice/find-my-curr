@@ -1,0 +1,19 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="container container-fluid align-items-center">
+  
+  <div class="login-form">
+    <h1 class="">Login To Your Profile</h1>
+    <form action="/login" method="POST">
+      {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    
+    </form>
+  </div>
+
+</div>
+
+
+  {% include "footer.html" %}
+  {% endblock %}
